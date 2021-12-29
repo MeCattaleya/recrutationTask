@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="Pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+
+    <!-- navigacja -->
+    <nav>
+        <a href="#" class="logo">LOGO</a>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">O nas</a></li>
+            <li><a href="#">Praca</a></li>
+            <li><a href="#">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <!-- konta osoba/firma -->
+
+    <div class="outer-container">
+
+        <form id="form" action="https://localhost:60001/Contractor/Save" method="post">
+
+            <div class="header">
+                <h1>Formularz rejestracji</h1>
+            </div>
+
+            <div>
+                <div class="field">
+                    <label for="imie">Imię</label>
+                    <input name="imie" type="text" id="imie" placeholder="Imię" required />
+                </div>
+                <div class="field">
+                    <label for="nazwisko">Nazwisko</label>
+                    <input name="nazwisko" type="text" id="nazwisko" placeholder="Nazwisko" required />
+                </div>
+                <div class="field">
+                    <div>
+                        <select class="typ" id="typ" onchange="handleTypChange(this)">
+                            <option value="osoba" default>Osoba</option>
+                            <option value="firma">Firma</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field">
+                    <!-- pesel -->
+                    <label for="pesel">Pesel</label>
+                    <input type="text" id="pesel" name="pesel" maxlength="11" placeholder="Numer Pesel" />
+
+                    <div id="osobaError" style='color:red'></div>
+                </div>
+
+                <div class="field">
+                    <!-- nip -->
+
+                    <label for="nip">NIP</label>
+
+                    <input type="text" name="nip" id="nip" maxlength="11" placeholder="Numer NIP" disabled="true" />
+
+                    <div id="firmaError" style='color:red'></div>
+                </div>
+
+                <div class="field">
+                    <input class='img' type="file" accept=".jpg,.jpeg" onchange="rerenderImage(this);" required />
+                    <img id="img" alt="your image" />
+
+                </div>
+                <div class="field">
+                    <button type="submit">WYŚLIJ</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</body>
+
+</html>
